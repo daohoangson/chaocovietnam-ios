@@ -58,7 +58,7 @@
 		16711391147543D9001D90C8 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
 		16711392147543D9001D90C8 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
 		16711394147549F2001D90C8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3"; path = "../../Chao Co Viet Nam_old/Chao Co Viet Nam/Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3"; sourceTree = "<group>"; };
+		1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3"; path = "files/Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3"; sourceTree = SOURCE_ROOT; };
 		1671139B14755117001D90C8 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = cocoaasyncsocket/RunLoop/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
 		1671139C14755117001D90C8 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = cocoaasyncsocket/RunLoop/AsyncUdpSocket.m; sourceTree = SOURCE_ROOT; };
 		167113A214756BC8001D90C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -137,6 +137,7 @@
 		167113711475439E001D90C8 /* chaocovietnam */ = {
 			isa = PBXGroup;
 			children = (
+				167113D414758C7D001D90C8 /* files */,
 				167113A9147576CD001D90C8 /* json-framework */,
 				167113A8147576C0001D90C8 /* AsyncUdpSocket */,
 				16711391147543D9001D90C8 /* StarView.h */,
@@ -158,7 +159,6 @@
 		167113721475439E001D90C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */,
 				167113731475439E001D90C8 /* chaocovietnam-Info.plist */,
 				167113741475439E001D90C8 /* InfoPlist.strings */,
 				167113771475439E001D90C8 /* main.m */,
@@ -206,6 +206,14 @@
 				167113C2147576E4001D90C8 /* SBJsonWriter.m */,
 			);
 			name = "json-framework";
+			sourceTree = "<group>";
+		};
+		167113D414758C7D001D90C8 /* files */ = {
+			isa = PBXGroup;
+			children = (
+				1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */,
+			);
+			name = files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +433,7 @@
 				167113901475439E001D90C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
