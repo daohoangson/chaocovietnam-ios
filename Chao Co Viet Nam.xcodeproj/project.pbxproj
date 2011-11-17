@@ -125,7 +125,6 @@
 				169B46E71468812200E63BF7 /* Vietnam_Flag_72.png */,
 				169B46E5146880A400E63BF7 /* Vietnam_Flag_114.png */,
 				169B46E31468805B00E63BF7 /* Vietnam_Flag_57.png */,
-				16B606851468583900C59800 /* AVFoundation.framework */,
 				16B6064E14684CC100C59800 /* Chao Co Viet Nam */,
 				16B6066F14684CC200C59800 /* Chao Co Viet NamTests */,
 				16B6064714684CC100C59800 /* Frameworks */,
@@ -146,6 +145,7 @@
 		16B6064714684CC100C59800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16B606851468583900C59800 /* AVFoundation.framework */,
 				16B6064814684CC100C59800 /* UIKit.framework */,
 				16B6064A14684CC100C59800 /* Foundation.framework */,
 				16B6064C14684CC100C59800 /* CoreGraphics.framework */,
@@ -448,8 +448,8 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Son Dao Hoang";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Son Dao Hoang";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -464,8 +464,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "1C7DB2D2-77E2-4F4A-94CA-C1AC4ACF1A47";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1C7DB2D2-77E2-4F4A-94CA-C1AC4ACF1A47";
+				PROVISIONING_PROFILE = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -480,8 +480,8 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Son Dao Hoang";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Son Dao Hoang";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -490,8 +490,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "1C7DB2D2-77E2-4F4A-94CA-C1AC4ACF1A47";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1C7DB2D2-77E2-4F4A-94CA-C1AC4ACF1A47";
+				PROVISIONING_PROFILE = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -501,11 +501,15 @@
 		16B6067B14684CC200C59800 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chao Co Viet Nam/Chao Co Viet Nam-Prefix.pch";
 				INFOPLIST_FILE = "Chao Co Viet Nam/Chao Co Viet Nam-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -513,11 +517,15 @@
 		16B6067C14684CC200C59800 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Son Dao Hoang (H5K5958NNF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chao Co Viet Nam/Chao Co Viet Nam-Prefix.pch";
 				INFOPLIST_FILE = "Chao Co Viet Nam/Chao Co Viet Nam-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48CA11EB-D65A-47D9-818E-38B1705E98C4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
