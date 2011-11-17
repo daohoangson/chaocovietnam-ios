@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Chao Co Viet Nam' target in the 'Chao Co Viet Nam' project
+// Prefix header for all source files of the 'chaocovietnam' target in the 'chaocovietnam' project
 //
 
 #import <Availability.h>

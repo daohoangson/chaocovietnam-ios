@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1671136C1475439E001D90C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1671136B1475439E001D90C8 /* UIKit.framework */; };
+		1671136E1475439E001D90C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1671136D1475439E001D90C8 /* Foundation.framework */; };
+		167113701475439E001D90C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1671136F1475439E001D90C8 /* CoreGraphics.framework */; };
+		167113761475439E001D90C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 167113741475439E001D90C8 /* InfoPlist.strings */; };
+		167113781475439E001D90C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113771475439E001D90C8 /* main.m */; };
+		1671137C1475439E001D90C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671137B1475439E001D90C8 /* AppDelegate.m */; };
+		1671137F1475439E001D90C8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671137E1475439E001D90C8 /* MainViewController.m */; };
+		167113821475439E001D90C8 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113811475439E001D90C8 /* FlipsideViewController.m */; };
+		167113851475439E001D90C8 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167113831475439E001D90C8 /* MainViewController_iPhone.xib */; };
+		167113881475439E001D90C8 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167113861475439E001D90C8 /* MainViewController_iPad.xib */; };
+		1671138B1475439E001D90C8 /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167113891475439E001D90C8 /* FlipsideViewController.xib */; };
+		16711393147543D9001D90C8 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16711392147543D9001D90C8 /* StarView.m */; };
+		16711395147549F2001D90C8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16711394147549F2001D90C8 /* AVFoundation.framework */; };
+		1671139714754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */; };
+		1671139D14755117001D90C8 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671139C14755117001D90C8 /* AsyncUdpSocket.m */; };
+		167113A314756BC8001D90C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167113A214756BC8001D90C8 /* QuartzCore.framework */; };
+		167113C3147576E4001D90C8 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113AB147576E4001D90C8 /* NSObject+SBJson.m */; };
+		167113C4147576E4001D90C8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113AE147576E4001D90C8 /* SBJsonParser.m */; };
+		167113C5147576E4001D90C8 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113B0147576E4001D90C8 /* SBJsonStreamParser.m */; };
+		167113C6147576E4001D90C8 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113B2147576E4001D90C8 /* SBJsonStreamParserAccumulator.m */; };
+		167113C7147576E4001D90C8 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113B4147576E4001D90C8 /* SBJsonStreamParserAdapter.m */; };
+		167113C8147576E4001D90C8 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113B6147576E4001D90C8 /* SBJsonStreamParserState.m */; };
+		167113C9147576E4001D90C8 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113B8147576E4001D90C8 /* SBJsonStreamWriter.m */; };
+		167113CA147576E4001D90C8 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113BA147576E4001D90C8 /* SBJsonStreamWriterAccumulator.m */; };
+		167113CB147576E4001D90C8 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113BC147576E4001D90C8 /* SBJsonStreamWriterState.m */; };
+		167113CC147576E4001D90C8 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113BE147576E4001D90C8 /* SBJsonTokeniser.m */; };
+		167113CD147576E4001D90C8 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113C0147576E4001D90C8 /* SBJsonUTF8Stream.m */; };
+		167113CE147576E4001D90C8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113C2147576E4001D90C8 /* SBJsonWriter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		167113671475439E001D90C8 /* chaocovietnam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chaocovietnam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1671136B1475439E001D90C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1671136D1475439E001D90C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1671136F1475439E001D90C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		167113731475439E001D90C8 /* chaocovietnam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "chaocovietnam-Info.plist"; sourceTree = "<group>"; };
+		167113751475439E001D90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		167113771475439E001D90C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		167113791475439E001D90C8 /* chaocovietnam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chaocovietnam-Prefix.pch"; sourceTree = "<group>"; };
+		1671137A1475439E001D90C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1671137B1475439E001D90C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1671137D1475439E001D90C8 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		1671137E1475439E001D90C8 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		167113801475439E001D90C8 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		167113811475439E001D90C8 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		167113841475439E001D90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
+		167113871475439E001D90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
+		1671138A1475439E001D90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
+		16711391147543D9001D90C8 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		16711392147543D9001D90C8 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
+		16711394147549F2001D90C8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3"; path = "../../Chao Co Viet Nam_old/Chao Co Viet Nam/Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3"; sourceTree = "<group>"; };
+		1671139B14755117001D90C8 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = cocoaasyncsocket/RunLoop/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
+		1671139C14755117001D90C8 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = cocoaasyncsocket/RunLoop/AsyncUdpSocket.m; sourceTree = SOURCE_ROOT; };
+		167113A214756BC8001D90C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		167113AA147576E4001D90C8 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "json-framework/Classes/NSObject+SBJson.h"; sourceTree = SOURCE_ROOT; };
+		167113AB147576E4001D90C8 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "json-framework/Classes/NSObject+SBJson.m"; sourceTree = SOURCE_ROOT; };
+		167113AC147576E4001D90C8 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = "json-framework/Classes/SBJson.h"; sourceTree = SOURCE_ROOT; };
+		167113AD147576E4001D90C8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = "json-framework/Classes/SBJsonParser.h"; sourceTree = SOURCE_ROOT; };
+		167113AE147576E4001D90C8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = "json-framework/Classes/SBJsonParser.m"; sourceTree = SOURCE_ROOT; };
+		167113AF147576E4001D90C8 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParser.h; path = "json-framework/Classes/SBJsonStreamParser.h"; sourceTree = SOURCE_ROOT; };
+		167113B0147576E4001D90C8 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParser.m; path = "json-framework/Classes/SBJsonStreamParser.m"; sourceTree = SOURCE_ROOT; };
+		167113B1147576E4001D90C8 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserAccumulator.h; path = "json-framework/Classes/SBJsonStreamParserAccumulator.h"; sourceTree = SOURCE_ROOT; };
+		167113B2147576E4001D90C8 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParserAccumulator.m; path = "json-framework/Classes/SBJsonStreamParserAccumulator.m"; sourceTree = SOURCE_ROOT; };
+		167113B3147576E4001D90C8 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserAdapter.h; path = "json-framework/Classes/SBJsonStreamParserAdapter.h"; sourceTree = SOURCE_ROOT; };
+		167113B4147576E4001D90C8 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParserAdapter.m; path = "json-framework/Classes/SBJsonStreamParserAdapter.m"; sourceTree = SOURCE_ROOT; };
+		167113B5147576E4001D90C8 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserState.h; path = "json-framework/Classes/SBJsonStreamParserState.h"; sourceTree = SOURCE_ROOT; };
+		167113B6147576E4001D90C8 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParserState.m; path = "json-framework/Classes/SBJsonStreamParserState.m"; sourceTree = SOURCE_ROOT; };
+		167113B7147576E4001D90C8 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriter.h; path = "json-framework/Classes/SBJsonStreamWriter.h"; sourceTree = SOURCE_ROOT; };
+		167113B8147576E4001D90C8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriter.m; path = "json-framework/Classes/SBJsonStreamWriter.m"; sourceTree = SOURCE_ROOT; };
+		167113B9147576E4001D90C8 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriterAccumulator.h; path = "json-framework/Classes/SBJsonStreamWriterAccumulator.h"; sourceTree = SOURCE_ROOT; };
+		167113BA147576E4001D90C8 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriterAccumulator.m; path = "json-framework/Classes/SBJsonStreamWriterAccumulator.m"; sourceTree = SOURCE_ROOT; };
+		167113BB147576E4001D90C8 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriterState.h; path = "json-framework/Classes/SBJsonStreamWriterState.h"; sourceTree = SOURCE_ROOT; };
+		167113BC147576E4001D90C8 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriterState.m; path = "json-framework/Classes/SBJsonStreamWriterState.m"; sourceTree = SOURCE_ROOT; };
+		167113BD147576E4001D90C8 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonTokeniser.h; path = "json-framework/Classes/SBJsonTokeniser.h"; sourceTree = SOURCE_ROOT; };
+		167113BE147576E4001D90C8 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonTokeniser.m; path = "json-framework/Classes/SBJsonTokeniser.m"; sourceTree = SOURCE_ROOT; };
+		167113BF147576E4001D90C8 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonUTF8Stream.h; path = "json-framework/Classes/SBJsonUTF8Stream.h"; sourceTree = SOURCE_ROOT; };
+		167113C0147576E4001D90C8 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = SOURCE_ROOT; };
+		167113C1147576E4001D90C8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "json-framework/Classes/SBJsonWriter.h"; sourceTree = SOURCE_ROOT; };
+		167113C2147576E4001D90C8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "json-framework/Classes/SBJsonWriter.m"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		167113641475439E001D90C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167113A314756BC8001D90C8 /* QuartzCore.framework in Frameworks */,
+				16711395147549F2001D90C8 /* AVFoundation.framework in Frameworks */,
+				1671136C1475439E001D90C8 /* UIKit.framework in Frameworks */,
+				1671136E1475439E001D90C8 /* Foundation.framework in Frameworks */,
+				167113701475439E001D90C8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1671135C1475439E001D90C8 = {
+			isa = PBXGroup;
+			children = (
+				167113711475439E001D90C8 /* chaocovietnam */,
+				1671136A1475439E001D90C8 /* Frameworks */,
+				167113681475439E001D90C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		167113681475439E001D90C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				167113671475439E001D90C8 /* chaocovietnam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1671136A1475439E001D90C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				167113A214756BC8001D90C8 /* QuartzCore.framework */,
+				16711394147549F2001D90C8 /* AVFoundation.framework */,
+				1671136B1475439E001D90C8 /* UIKit.framework */,
+				1671136D1475439E001D90C8 /* Foundation.framework */,
+				1671136F1475439E001D90C8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		167113711475439E001D90C8 /* chaocovietnam */ = {
+			isa = PBXGroup;
+			children = (
+				167113A9147576CD001D90C8 /* json-framework */,
+				167113A8147576C0001D90C8 /* AsyncUdpSocket */,
+				16711391147543D9001D90C8 /* StarView.h */,
+				16711392147543D9001D90C8 /* StarView.m */,
+				1671137A1475439E001D90C8 /* AppDelegate.h */,
+				1671137B1475439E001D90C8 /* AppDelegate.m */,
+				1671137D1475439E001D90C8 /* MainViewController.h */,
+				1671137E1475439E001D90C8 /* MainViewController.m */,
+				167113801475439E001D90C8 /* FlipsideViewController.h */,
+				167113811475439E001D90C8 /* FlipsideViewController.m */,
+				167113831475439E001D90C8 /* MainViewController_iPhone.xib */,
+				167113861475439E001D90C8 /* MainViewController_iPad.xib */,
+				167113891475439E001D90C8 /* FlipsideViewController.xib */,
+				167113721475439E001D90C8 /* Supporting Files */,
+			);
+			path = chaocovietnam;
+			sourceTree = "<group>";
+		};
+		167113721475439E001D90C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1671139614754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 */,
+				167113731475439E001D90C8 /* chaocovietnam-Info.plist */,
+				167113741475439E001D90C8 /* InfoPlist.strings */,
+				167113771475439E001D90C8 /* main.m */,
+				167113791475439E001D90C8 /* chaocovietnam-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		167113A8147576C0001D90C8 /* AsyncUdpSocket */ = {
+			isa = PBXGroup;
+			children = (
+				1671139B14755117001D90C8 /* AsyncUdpSocket.h */,
+				1671139C14755117001D90C8 /* AsyncUdpSocket.m */,
+			);
+			name = AsyncUdpSocket;
+			sourceTree = "<group>";
+		};
+		167113A9147576CD001D90C8 /* json-framework */ = {
+			isa = PBXGroup;
+			children = (
+				167113AA147576E4001D90C8 /* NSObject+SBJson.h */,
+				167113AB147576E4001D90C8 /* NSObject+SBJson.m */,
+				167113AC147576E4001D90C8 /* SBJson.h */,
+				167113AD147576E4001D90C8 /* SBJsonParser.h */,
+				167113AE147576E4001D90C8 /* SBJsonParser.m */,
+				167113AF147576E4001D90C8 /* SBJsonStreamParser.h */,
+				167113B0147576E4001D90C8 /* SBJsonStreamParser.m */,
+				167113B1147576E4001D90C8 /* SBJsonStreamParserAccumulator.h */,
+				167113B2147576E4001D90C8 /* SBJsonStreamParserAccumulator.m */,
+				167113B3147576E4001D90C8 /* SBJsonStreamParserAdapter.h */,
+				167113B4147576E4001D90C8 /* SBJsonStreamParserAdapter.m */,
+				167113B5147576E4001D90C8 /* SBJsonStreamParserState.h */,
+				167113B6147576E4001D90C8 /* SBJsonStreamParserState.m */,
+				167113B7147576E4001D90C8 /* SBJsonStreamWriter.h */,
+				167113B8147576E4001D90C8 /* SBJsonStreamWriter.m */,
+				167113B9147576E4001D90C8 /* SBJsonStreamWriterAccumulator.h */,
+				167113BA147576E4001D90C8 /* SBJsonStreamWriterAccumulator.m */,
+				167113BB147576E4001D90C8 /* SBJsonStreamWriterState.h */,
+				167113BC147576E4001D90C8 /* SBJsonStreamWriterState.m */,
+				167113BD147576E4001D90C8 /* SBJsonTokeniser.h */,
+				167113BE147576E4001D90C8 /* SBJsonTokeniser.m */,
+				167113BF147576E4001D90C8 /* SBJsonUTF8Stream.h */,
+				167113C0147576E4001D90C8 /* SBJsonUTF8Stream.m */,
+				167113C1147576E4001D90C8 /* SBJsonWriter.h */,
+				167113C2147576E4001D90C8 /* SBJsonWriter.m */,
+			);
+			name = "json-framework";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		167113661475439E001D90C8 /* chaocovietnam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1671138E1475439E001D90C8 /* Build configuration list for PBXNativeTarget "chaocovietnam" */;
+			buildPhases = (
+				167113631475439E001D90C8 /* Sources */,
+				167113641475439E001D90C8 /* Frameworks */,
+				167113651475439E001D90C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = chaocovietnam;
+			productName = chaocovietnam;
+			productReference = 167113671475439E001D90C8 /* chaocovietnam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1671135E1475439E001D90C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = UET;
+			};
+			buildConfigurationList = 167113611475439E001D90C8 /* Build configuration list for PBXProject "chaocovietnam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1671135C1475439E001D90C8;
+			productRefGroup = 167113681475439E001D90C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				167113661475439E001D90C8 /* chaocovietnam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		167113651475439E001D90C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167113761475439E001D90C8 /* InfoPlist.strings in Resources */,
+				167113851475439E001D90C8 /* MainViewController_iPhone.xib in Resources */,
+				167113881475439E001D90C8 /* MainViewController_iPad.xib in Resources */,
+				1671138B1475439E001D90C8 /* FlipsideViewController.xib in Resources */,
+				1671139714754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		167113631475439E001D90C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167113781475439E001D90C8 /* main.m in Sources */,
+				1671137C1475439E001D90C8 /* AppDelegate.m in Sources */,
+				1671137F1475439E001D90C8 /* MainViewController.m in Sources */,
+				167113821475439E001D90C8 /* FlipsideViewController.m in Sources */,
+				16711393147543D9001D90C8 /* StarView.m in Sources */,
+				1671139D14755117001D90C8 /* AsyncUdpSocket.m in Sources */,
+				167113C3147576E4001D90C8 /* NSObject+SBJson.m in Sources */,
+				167113C4147576E4001D90C8 /* SBJsonParser.m in Sources */,
+				167113C5147576E4001D90C8 /* SBJsonStreamParser.m in Sources */,
+				167113C6147576E4001D90C8 /* SBJsonStreamParserAccumulator.m in Sources */,
+				167113C7147576E4001D90C8 /* SBJsonStreamParserAdapter.m in Sources */,
+				167113C8147576E4001D90C8 /* SBJsonStreamParserState.m in Sources */,
+				167113C9147576E4001D90C8 /* SBJsonStreamWriter.m in Sources */,
+				167113CA147576E4001D90C8 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				167113CB147576E4001D90C8 /* SBJsonStreamWriterState.m in Sources */,
+				167113CC147576E4001D90C8 /* SBJsonTokeniser.m in Sources */,
+				167113CD147576E4001D90C8 /* SBJsonUTF8Stream.m in Sources */,
+				167113CE147576E4001D90C8 /* SBJsonWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		167113741475439E001D90C8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				167113751475439E001D90C8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		167113831475439E001D90C8 /* MainViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				167113841475439E001D90C8 /* en */,
+			);
+			name = MainViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		167113861475439E001D90C8 /* MainViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				167113871475439E001D90C8 /* en */,
+			);
+			name = MainViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		167113891475439E001D90C8 /* FlipsideViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1671138A1475439E001D90C8 /* en */,
+			);
+			name = FlipsideViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1671138C1475439E001D90C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1671138D1475439E001D90C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1671138F1475439E001D90C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "chaocovietnam/chaocovietnam-Prefix.pch";
+				INFOPLIST_FILE = "chaocovietnam/chaocovietnam-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		167113901475439E001D90C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "chaocovietnam/chaocovietnam-Prefix.pch";
+				INFOPLIST_FILE = "chaocovietnam/chaocovietnam-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		167113611475439E001D90C8 /* Build configuration list for PBXProject "chaocovietnam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1671138C1475439E001D90C8 /* Debug */,
+				1671138D1475439E001D90C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1671138E1475439E001D90C8 /* Build configuration list for PBXNativeTarget "chaocovietnam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1671138F1475439E001D90C8 /* Debug */,
+				167113901475439E001D90C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1671135E1475439E001D90C8 /* Project object */;
+}
