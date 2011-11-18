@@ -274,7 +274,11 @@
 - (void)pausePlaying
 {
     [audioPlayer pause];
-    [timer invalidate];
+    if (timer != nil) 
+    {
+        [timer invalidate];
+        timer = nil;
+    }
     
     [_btnAction setTitle:@"Play" forState:0];
     [_lblLyrics setText:@""];
@@ -358,8 +362,11 @@
                           deviceName, CHAOCOVIETNAM_DATA_KEY_NAME,
                           nil];
     NSString *str = [dict JSONRepresentation];
+    NSString *host = @"255.255.255.255";
     NSData *data = [NSData dataWithData:[str dataUsingEncoding:NSASCIIStringEncoding]];
-    [socket sendData:data toHost:@"255.255.255.255" port:CHAOCOVIETNAM_PORT withTimeout:-1 tag:0];
+    [socket sendData:data toHost:host port:CHAOCOVIETNAM_PORT withTimeout:-1 tag:0];
+    
+    NSLog(@"Sent %@ to %@", str, host);
 
     [dict release];
 }
@@ -384,7 +391,7 @@
                 // this check will keeps us from working with our own broadcast message
                 // that's silly!
                 float currentTime = CACurrentMediaTime();
-                if (currentTime - syncBaseTime > 1)
+                if (currentTime - syncUpdatedTime > 1)
                 {
                     // checks to deal with double udp message (ipv4 and ipv6)
                     syncBaseTime = currentTime - seconds;
@@ -396,6 +403,9 @@
             }
         }
     }
+    
+    NSLog(@"Received %@ from %@", str, host);
+    
     [str release];
 }
 
