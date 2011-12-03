@@ -9,6 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "FlipsideViewController.h"
 #import "AsyncUdpSocket.h"
+#import "Recorder.h"
 
 #define CHAOCOVIETNAM_PORT 25296
 #define CHAOCOVIETNAM_TIMER_STEP 0.5
@@ -30,6 +31,10 @@
     float          syncBaseTime;
     NSString       *syncDeviceName;
     float          syncUpdatedTime;
+    
+    Recorder       *recorder;
+    float          recorderBaseTime;
+    NSTimer        *recorderTimer;
 }
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
@@ -47,9 +52,13 @@
 - (void)pausePlaying;
 - (void)audioPlayerTick;
 - (void)syncPlayerTick;
+- (void)recorderTick;
+- (void)recorderTick2;
 - (void)updateLyrics:(float)seconds from:(NSString *)fromDeviceName;
 
 - (void)socketBroadcast:(float)seconds;
 - (void)socketParse:(NSData *)data fromHost:(NSString *)host;
+
+- (IBAction)record:(id)sender;
 
 @end

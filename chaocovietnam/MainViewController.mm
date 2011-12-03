@@ -85,6 +85,11 @@
     syncBaseTime = 0;
     syncDeviceName = nil;
     syncUpdatedTime = 0;
+    
+    // recorder stuff
+    recorder = new Recorder();
+    recorderBaseTime = 0;
+    recorderTimer = nil;
 }
 
 - (void)viewDidUnload
@@ -112,6 +117,13 @@
     [socket close];
     [socket release];
     [deviceName release];
+    
+    delete recorder;
+    if (recorderTimer != nil)
+    {
+        [recorderTimer invalidate];
+        recorderTimer = nil;
+    }
     
     [super dealloc];
 }
@@ -269,6 +281,8 @@
     syncBaseTime = 0;
     syncDeviceName = nil;
     syncUpdatedTime = 0;
+    
+    recorderBaseTime = 0;
 }
 
 - (void)pausePlaying
@@ -302,7 +316,7 @@
 
 - (void)syncPlayerTick
 {
-    if (syncBaseTime == 0 || audioPlayer.playing)
+    if (syncBaseTime == 0 || audioPlayer.playing || recorderBaseTime > 0)
     {
         // nothing to do here
         return;
@@ -325,6 +339,57 @@
     
     // schedule this function again...
     [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(syncPlayerTick) userInfo:nil repeats:NO];
+}
+
+- (void)recorderTick
+{
+    if (recorder->isRunning())
+    {
+        // it's still recording
+        // nothing to do much
+        [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(recorderTick) userInfo:nil repeats:NO];
+        
+        NSLog(@"Waiting for recorder...");
+    }
+    else
+    {
+        recorderBaseTime = recorder->getRecognizedBaseTime();
+        
+        NSLog(@"Base time: %g", recorderBaseTime);
+        
+        if (recorderTimer != nil)
+        {
+            [recorderTimer invalidate];
+        }
+        
+        recorderTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(recorderTick2) userInfo:nil repeats:NO];
+    }
+}
+
+- (void)recorderTick2
+{
+    if (recorderBaseTime == 0 || audioPlayer.playing || syncBaseTime > 0)
+    {
+        // nothing to do here
+        return;
+    }
+    
+    float currentTime = CACurrentMediaTime();
+    float baseOffset = currentTime - recorderBaseTime;
+    
+    if (baseOffset > audioPlayer.duration)
+    {
+        // well, we have to stop sometime...
+        [recorderTimer invalidate];
+        recorderTimer = nil;
+        return;
+    }
+    
+    // updates the lyrics using the normal flow code
+    [self updateLyrics:baseOffset from:@"Air"];
+    
+    // schedule this function again...
+    recorderTimer = [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(recorderTick2) userInfo:nil repeats:NO];
 }
 
 - (void)updateLyrics:(float)seconds from:(NSString *)fromDeviceName;
@@ -351,6 +416,8 @@
     }
     
     [_lblLyrics setText:maxLyric];
+    
+    NSLog(@"updateLyrics: %g, %@, %@", seconds, fromDeviceName, maxLyric);
 }
 
 #pragma mark - AsyncUdpSocketDelegate
@@ -415,5 +482,19 @@
     
     return NO;
 }
+
+- (IBAction)record:(id)sender
+{
+    if (recorder->isRunning())
+    {
+        recorder->stopRecording();
+    }
+    else
+    {
+        recorder->startRecording();
+        [self recorderTick];
+    }
+}
+
 
 @end

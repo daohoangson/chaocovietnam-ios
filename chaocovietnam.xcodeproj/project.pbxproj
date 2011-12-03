@@ -12,8 +12,8 @@
 		167113701475439E001D90C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1671136F1475439E001D90C8 /* CoreGraphics.framework */; };
 		167113761475439E001D90C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 167113741475439E001D90C8 /* InfoPlist.strings */; };
 		167113781475439E001D90C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113771475439E001D90C8 /* main.m */; };
-		1671137C1475439E001D90C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671137B1475439E001D90C8 /* AppDelegate.m */; };
-		1671137F1475439E001D90C8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671137E1475439E001D90C8 /* MainViewController.m */; };
+		1671137C1475439E001D90C8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1671137B1475439E001D90C8 /* AppDelegate.mm */; };
+		1671137F1475439E001D90C8 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1671137E1475439E001D90C8 /* MainViewController.mm */; };
 		167113821475439E001D90C8 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113811475439E001D90C8 /* FlipsideViewController.m */; };
 		167113851475439E001D90C8 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167113831475439E001D90C8 /* MainViewController_iPhone.xib */; };
 		167113881475439E001D90C8 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167113861475439E001D90C8 /* MainViewController_iPad.xib */; };
@@ -35,9 +35,20 @@
 		167113CC147576E4001D90C8 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113BE147576E4001D90C8 /* SBJsonTokeniser.m */; };
 		167113CD147576E4001D90C8 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113C0147576E4001D90C8 /* SBJsonUTF8Stream.m */; };
 		167113CE147576E4001D90C8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 167113C2147576E4001D90C8 /* SBJsonWriter.m */; };
+		16E38154148A175B00A2FB8B /* Recorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E38153148A175B00A2FB8B /* Recorder.mm */; };
+		16E38156148A179E00A2FB8B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E38155148A179E00A2FB8B /* AudioToolbox.framework */; };
+		16E3815D148A19B700A2FB8B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E3815C148A19B700A2FB8B /* CoreFoundation.framework */; };
+		16E38166148A1A2000A2FB8B /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E3815F148A1A2000A2FB8B /* CADebugMacros.cpp */; };
+		16E38167148A1A2000A2FB8B /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E38162148A1A2000A2FB8B /* CAStreamBasicDescription.cpp */; };
+		16E38168148A1A2000A2FB8B /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E38164148A1A2000A2FB8B /* CAXException.cpp */; };
+		16E3816B148A1B6900A2FB8B /* CADebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E38169148A1B6900A2FB8B /* CADebugPrintf.cpp */; };
+		16E3817C148A2C1900A2FB8B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E3817B148A2C1900A2FB8B /* Accelerate.framework */; };
+		16E38183148A2EB100A2FB8B /* pkmFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E3817E148A2EB100A2FB8B /* pkmFFT.cpp */; };
+		16E38185148A2EB100A2FB8B /* README in Resources */ = {isa = PBXBuildFile; fileRef = 16E38182148A2EB100A2FB8B /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161FB910148A93EC00E8B97D /* Frequencies004.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frequencies004.h; sourceTree = "<group>"; };
 		167113671475439E001D90C8 /* chaocovietnam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chaocovietnam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1671136B1475439E001D90C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1671136D1475439E001D90C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,9 +58,9 @@
 		167113771475439E001D90C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		167113791475439E001D90C8 /* chaocovietnam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chaocovietnam-Prefix.pch"; sourceTree = "<group>"; };
 		1671137A1475439E001D90C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1671137B1475439E001D90C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1671137D1475439E001D90C8 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		1671137E1475439E001D90C8 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		1671137B1475439E001D90C8 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		1671137D1475439E001D90C8 /* MainViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		1671137E1475439E001D90C8 /* MainViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
 		167113801475439E001D90C8 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		167113811475439E001D90C8 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		167113841475439E001D90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -87,6 +98,23 @@
 		167113C0147576E4001D90C8 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = SOURCE_ROOT; };
 		167113C1147576E4001D90C8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "json-framework/Classes/SBJsonWriter.h"; sourceTree = SOURCE_ROOT; };
 		167113C2147576E4001D90C8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "json-framework/Classes/SBJsonWriter.m"; sourceTree = SOURCE_ROOT; };
+		16E38151148A175000A2FB8B /* Recorder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = Recorder.h; sourceTree = "<group>"; };
+		16E38153148A175B00A2FB8B /* Recorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Recorder.mm; sourceTree = "<group>"; };
+		16E38155148A179E00A2FB8B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		16E3815C148A19B700A2FB8B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		16E3815F148A1A2000A2FB8B /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		16E38160148A1A2000A2FB8B /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		16E38161148A1A2000A2FB8B /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		16E38162148A1A2000A2FB8B /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		16E38163148A1A2000A2FB8B /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		16E38164148A1A2000A2FB8B /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		16E38165148A1A2000A2FB8B /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		16E38169148A1B6900A2FB8B /* CADebugPrintf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugPrintf.cpp; sourceTree = "<group>"; };
+		16E3816A148A1B6900A2FB8B /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		16E3817B148A2C1900A2FB8B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		16E3817E148A2EB100A2FB8B /* pkmFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pkmFFT.cpp; sourceTree = "<group>"; };
+		16E3817F148A2EB100A2FB8B /* pkmFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkmFFT.h; sourceTree = "<group>"; };
+		16E38182148A2EB100A2FB8B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +122,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16E3817C148A2C1900A2FB8B /* Accelerate.framework in Frameworks */,
+				16E3815D148A19B700A2FB8B /* CoreFoundation.framework in Frameworks */,
+				16E38156148A179E00A2FB8B /* AudioToolbox.framework in Frameworks */,
 				167113A314756BC8001D90C8 /* QuartzCore.framework in Frameworks */,
 				16711395147549F2001D90C8 /* AVFoundation.framework in Frameworks */,
 				1671136C1475439E001D90C8 /* UIKit.framework in Frameworks */,
@@ -125,6 +156,9 @@
 		1671136A1475439E001D90C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16E3817B148A2C1900A2FB8B /* Accelerate.framework */,
+				16E3815C148A19B700A2FB8B /* CoreFoundation.framework */,
+				16E38155148A179E00A2FB8B /* AudioToolbox.framework */,
 				167113A214756BC8001D90C8 /* QuartzCore.framework */,
 				16711394147549F2001D90C8 /* AVFoundation.framework */,
 				1671136B1475439E001D90C8 /* UIKit.framework */,
@@ -137,21 +171,26 @@
 		167113711475439E001D90C8 /* chaocovietnam */ = {
 			isa = PBXGroup;
 			children = (
+				16E3817D148A2EB100A2FB8B /* pkmFFT */,
+				16E3815E148A1A2000A2FB8B /* iPublicUtility */,
 				167113D414758C7D001D90C8 /* files */,
 				167113A9147576CD001D90C8 /* json-framework */,
 				167113A8147576C0001D90C8 /* AsyncUdpSocket */,
 				16711391147543D9001D90C8 /* StarView.h */,
 				16711392147543D9001D90C8 /* StarView.m */,
 				1671137A1475439E001D90C8 /* AppDelegate.h */,
-				1671137B1475439E001D90C8 /* AppDelegate.m */,
+				1671137B1475439E001D90C8 /* AppDelegate.mm */,
 				1671137D1475439E001D90C8 /* MainViewController.h */,
-				1671137E1475439E001D90C8 /* MainViewController.m */,
+				1671137E1475439E001D90C8 /* MainViewController.mm */,
 				167113801475439E001D90C8 /* FlipsideViewController.h */,
 				167113811475439E001D90C8 /* FlipsideViewController.m */,
 				167113831475439E001D90C8 /* MainViewController_iPhone.xib */,
 				167113861475439E001D90C8 /* MainViewController_iPad.xib */,
 				167113891475439E001D90C8 /* FlipsideViewController.xib */,
 				167113721475439E001D90C8 /* Supporting Files */,
+				16E38151148A175000A2FB8B /* Recorder.h */,
+				16E38153148A175B00A2FB8B /* Recorder.mm */,
+				161FB910148A93EC00E8B97D /* Frequencies004.h */,
 			);
 			path = chaocovietnam;
 			sourceTree = "<group>";
@@ -216,6 +255,32 @@
 			name = files;
 			sourceTree = "<group>";
 		};
+		16E3815E148A1A2000A2FB8B /* iPublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				16E38169148A1B6900A2FB8B /* CADebugPrintf.cpp */,
+				16E3816A148A1B6900A2FB8B /* CADebugPrintf.h */,
+				16E3815F148A1A2000A2FB8B /* CADebugMacros.cpp */,
+				16E38160148A1A2000A2FB8B /* CADebugMacros.h */,
+				16E38161148A1A2000A2FB8B /* CAMath.h */,
+				16E38162148A1A2000A2FB8B /* CAStreamBasicDescription.cpp */,
+				16E38163148A1A2000A2FB8B /* CAStreamBasicDescription.h */,
+				16E38164148A1A2000A2FB8B /* CAXException.cpp */,
+				16E38165148A1A2000A2FB8B /* CAXException.h */,
+			);
+			path = iPublicUtility;
+			sourceTree = "<group>";
+		};
+		16E3817D148A2EB100A2FB8B /* pkmFFT */ = {
+			isa = PBXGroup;
+			children = (
+				16E3817E148A2EB100A2FB8B /* pkmFFT.cpp */,
+				16E3817F148A2EB100A2FB8B /* pkmFFT.h */,
+				16E38182148A2EB100A2FB8B /* README */,
+			);
+			path = pkmFFT;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +337,7 @@
 				167113881475439E001D90C8 /* MainViewController_iPad.xib in Resources */,
 				1671138B1475439E001D90C8 /* FlipsideViewController.xib in Resources */,
 				1671139714754A6C001D90C8 /* Vietnam_National_Anthem_-_Tien_Quan_Ca.mp3 in Resources */,
+				16E38185148A2EB100A2FB8B /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +349,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				167113781475439E001D90C8 /* main.m in Sources */,
-				1671137C1475439E001D90C8 /* AppDelegate.m in Sources */,
-				1671137F1475439E001D90C8 /* MainViewController.m in Sources */,
+				1671137C1475439E001D90C8 /* AppDelegate.mm in Sources */,
+				1671137F1475439E001D90C8 /* MainViewController.mm in Sources */,
 				167113821475439E001D90C8 /* FlipsideViewController.m in Sources */,
 				16711393147543D9001D90C8 /* StarView.m in Sources */,
 				1671139D14755117001D90C8 /* AsyncUdpSocket.m in Sources */,
@@ -300,6 +366,12 @@
 				167113CC147576E4001D90C8 /* SBJsonTokeniser.m in Sources */,
 				167113CD147576E4001D90C8 /* SBJsonUTF8Stream.m in Sources */,
 				167113CE147576E4001D90C8 /* SBJsonWriter.m in Sources */,
+				16E38154148A175B00A2FB8B /* Recorder.mm in Sources */,
+				16E38166148A1A2000A2FB8B /* CADebugMacros.cpp in Sources */,
+				16E38167148A1A2000A2FB8B /* CAStreamBasicDescription.cpp in Sources */,
+				16E38168148A1A2000A2FB8B /* CAXException.cpp in Sources */,
+				16E3816B148A1B6900A2FB8B /* CADebugPrintf.cpp in Sources */,
+				16E38183148A2EB100A2FB8B /* pkmFFT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,12 +431,13 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -381,13 +454,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
