@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StarView : UIView
+@protocol StarViewDelegate <NSObject>
+
+- (void)onScrolling:(float)percent;
+
+@end
+
+@interface StarView : UIView {
+    float percent;
+}
+
+@property (nonatomic, assign) id<StarViewDelegate> starViewDelegate;
+
+- (void)initCommon;
+- (void)setPercent:(float)percent;
 
 @end

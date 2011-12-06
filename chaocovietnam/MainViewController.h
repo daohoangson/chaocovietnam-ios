@@ -7,6 +7,7 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import "StarView.h"
 #import "FlipsideViewController.h"
 #import "AsyncUdpSocket.h"
 #import "Recorder.h"
@@ -18,7 +19,7 @@
 #define CHAOCOVIETNAM_DATA_KEY_SECONDS @"s"
 #define CHAOCOVIETNAM_DATA_KEY_NAME @"n"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, AVAudioPlayerDelegate, AsyncUdpSocketDelegate>
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, AVAudioPlayerDelegate, AsyncUdpSocketDelegate, StarViewDelegate>
 {
     AVAudioPlayer  *audioPlayer;
     NSDictionary   *lyrics;
@@ -34,31 +35,32 @@
     
     Recorder       *recorder;
     float          recorderBaseTime;
-    NSTimer        *recorderTimer;
+    float          recorderTick2BaseTime; // this is used internally by recorderTick2
 }
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 @property (retain, nonatomic) IBOutlet UILabel *lblLyrics;
 @property (retain, nonatomic) IBOutlet UIButton *btnAction;
+@property (retain, nonatomic) IBOutlet UIButton *btnSecondaryAction;
+@property (retain, nonatomic) IBOutlet StarView *starView;
 
 - (IBAction)showInfo:(id)sender;
+
 - (IBAction)doAction:(id)sender;
 - (IBAction)doActionDeeper:(id)sender;
+- (IBAction)doSecondaryAction:(id)sender;
 - (void)resumeOrPause;
 - (void)startOrStop;
-
-- (void)positionLyrics;
 - (void)startPlaying;
 - (void)pausePlaying;
+- (void)updateLyrics:(float)seconds from:(NSString *)fromDeviceName;
+
 - (void)audioPlayerTick;
 - (void)syncPlayerTick;
 - (void)recorderTick;
 - (void)recorderTick2;
-- (void)updateLyrics:(float)seconds from:(NSString *)fromDeviceName;
 
 - (void)socketBroadcast:(float)seconds;
 - (void)socketParse:(NSData *)data fromHost:(NSString *)host;
-
-- (IBAction)record:(id)sender;
 
 @end

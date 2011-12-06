@@ -9,6 +9,9 @@
 #import "FlipsideViewController.h"
 
 @implementation FlipsideViewController
+@synthesize tabBarController = _tabBarController;
+@synthesize lblIntro1 = _lblIntro1;
+@synthesize lblIntro2 = _lblIntro2;
 
 @synthesize delegate = _delegate;
 
@@ -32,11 +35,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [self.lblIntro1 setTextAlignment:UITextAlignmentJustify];
+    [self.lblIntro2 setTextAlignment:UITextAlignmentJustify];
+
+    self.tabBarController.view.frame = CGRectMake(0, 50, 320, 410);    
+    [self.view addSubview:self.tabBarController.view];
 }
 
 - (void)viewDidUnload
 {
+    [self setLblIntro1:nil];
+    [self setTabBarController:nil];
+    [self setLblIntro2:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -79,4 +90,10 @@
     [self.delegate flipsideViewControllerDidFinish:self];
 }
 
+- (void)dealloc {
+    [_lblIntro1 release];
+    [_tabBarController release];
+    [_lblIntro2 release];
+    [super dealloc];
+}
 @end

@@ -26,7 +26,7 @@ void Recorder::inCallbackProc(
                               )
 {
     Recorder *recorder = (Recorder *)inUserData;
-    
+
     try
     {
         if (recorder->m_sampleCount < recorder->m_requiredSampleCount)
@@ -55,10 +55,7 @@ void Recorder::inCallbackProc(
             recorder->m_sampleCount++;
             
             // re-enqueue the buffer
-            if (recorder->isRunning())
-            {
-                XThrowIfError(AudioQueueEnqueueBuffer(inAQ, inBuffer, 0, NULL), "AudioQueueEnqueueBuffer");
-            }
+            XThrowIfError(AudioQueueEnqueueBuffer(inAQ, inBuffer, 0, NULL), "AudioQueueEnqueueBuffer");
         }
     }
     catch (CAXException e)
@@ -115,9 +112,9 @@ void Recorder::startRecording(void)
         m_matchedI = -1;
         m_matchedMax = 0;
         
-        m_isRunning = true;
-        
         XThrowIfError(AudioQueueStart(m_queue, NULL), "AudioQueueStart");
+
+        m_isRunning = true;
     }
     catch (CAXException &e)
     {
@@ -136,6 +133,7 @@ void Recorder::stopRecording(void)
     {
         XThrowIfError(AudioQueueStop(m_queue, true), "AudioQueueStop");
         AudioQueueDispose(m_queue, true);
+        m_queue = nil;
         
         if (m_sampleCount == m_requiredSampleCount)
         {
@@ -187,7 +185,7 @@ bool Recorder::isRunning(void)
 
 float Recorder::getRecognizedBaseTime(void)
 {
-    if (m_matchedI != -1 && m_matchedMax > 3)
+    if (m_matchedI != -1 && m_matchedMax > 5)
     {
         // a matched is found
         float offset = ((float) m_matchedI) * frequenciesWindow - 2.8f;

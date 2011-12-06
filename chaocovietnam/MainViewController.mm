@@ -14,6 +14,8 @@
 @synthesize flipsidePopoverController = _flipsidePopoverController;
 @synthesize lblLyrics = _lblLyrics;
 @synthesize btnAction = _btnAction;
+@synthesize btnSecondaryAction = _btnSecondaryAction;
+@synthesize starView = _starView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _starView.starViewDelegate = self;
 
     // loads the mp3
     if (audioPlayer == nil)
@@ -67,6 +71,7 @@
                   @"", [NSNumber numberWithFloat:127.5],
                   nil] retain];
     }
+    [_lblLyrics setText:@""];
     
     // inits the socket
     if (socket == nil)
@@ -89,13 +94,15 @@
     // recorder stuff
     recorder = new Recorder();
     recorderBaseTime = 0;
-    recorderTimer = nil;
+    recorderTick2BaseTime = 0;
 }
 
 - (void)viewDidUnload
 {
     [self setLblLyrics:nil];
     [self setBtnAction:nil];
+    [self setStarView:nil];
+    [self setBtnSecondaryAction:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -106,6 +113,8 @@
     [_flipsidePopoverController release];
     [_lblLyrics release];
     [_btnAction release];
+    [_starView release];
+    [_btnSecondaryAction release];
     
     if (audioPlayer.playing)
     {
@@ -119,23 +128,25 @@
     [deviceName release];
     
     delete recorder;
-    if (recorderTimer != nil)
-    {
-        [recorderTimer invalidate];
-        recorderTimer = nil;
-    }
     
     [super dealloc];
 }
-
-#pragma mark - Rotating stuff
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self positionLyrics];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+}
+
+#pragma mark - Rotating stuff
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -157,33 +168,8 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    
-    [self positionLyrics];
-    
-    [_lblLyrics setHidden:NO];
-}
 
-- (void)positionLyrics
-{
-    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation) && UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad)
-    {
-        // we are on a small screen (iPhone, iPod Touch) and in portrait mode
-        // let's move the lyrics to above the start button so longer text can appear
-        CGRect frame = _btnAction.frame;
-        frame.origin.y = _btnAction.frame.origin.y - _btnAction.frame.size.height;
-        frame.size.width = self.view.bounds.size.width - 2*(_btnAction.frame.origin.x);
-        [_lblLyrics setFrame:frame];
-    }
-    else
-    {
-        // just put the lyrics next to the button
-        CGRect frame = _btnAction.frame;
-        frame.origin.x = 2*_btnAction.frame.origin.x + _btnAction.frame.size.width;
-        frame.size.width = self.view.bounds.size.width - 3*(_btnAction.frame.origin.x) - _btnAction.frame.size.width;
-        [_lblLyrics setFrame:frame];
-    }
-    
-    [_lblLyrics setText:@""];
+    [_lblLyrics setHidden:NO];
 }
 
 #pragma mark - Flipside View Controller
@@ -232,6 +218,34 @@
     [self startOrStop];
 }
 
+- (IBAction)doSecondaryAction:(id)sender {
+    if (audioPlayer.playing)
+    {
+        // do nothing
+    }
+    else
+    {
+        if (recorder->isRunning())
+        {
+            // also do nothing
+            // it should be disabled actually
+            // recorder->stopRecording();
+        }
+        else
+        {
+            // fix a silly bug
+            // remove this line and recorder will fail to AudioQueueStart
+            // probably because audioPlayer is still holding the AudioSession...
+            [audioPlayer stop];
+            
+            recorder->startRecording();
+            [self recorderTick];
+        }
+        
+        [_btnSecondaryAction setEnabled:NO];
+    }
+}
+
 - (void)resumeOrPause
 {
     if (audioPlayer.playing)
@@ -262,20 +276,14 @@
     }
 }
 
-#pragma mark - AVAudioPlayerDelegate
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    [self pausePlaying];
-}
-
 - (void)startPlaying
 {
     [audioPlayer play];
     timer = [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(audioPlayerTick) userInfo:nil repeats:YES];
     
-    [_btnAction setTitle:@"Pause" forState:0];
+    [_btnAction setTitle:NSLocalizedString(@"BUTTON_STOP", nil) forState:0];
     [_lblLyrics setText:@""];
+    [_btnSecondaryAction setEnabled:NO];
     
     broadcastSentTime = 0;
     syncBaseTime = 0;
@@ -294,9 +302,41 @@
         timer = nil;
     }
     
-    [_btnAction setTitle:@"Play" forState:0];
+    [_btnAction setTitle:NSLocalizedString(@"BUTTON_PLAY", nil) forState:0];
     [_lblLyrics setText:@""];
+    [_btnSecondaryAction setEnabled:YES];
 }
+
+- (void)updateLyrics:(float)seconds from:(NSString *)fromDeviceName;
+{
+    float maxTime = 0;
+    float time = 0;
+    NSString *maxLyric = @"";
+    
+    for (NSNumber *key in lyrics)
+    {
+        time = [key floatValue];
+        if (seconds > time && maxTime < time)
+        {
+            maxTime = time;
+            maxLyric = [lyrics objectForKey:key];
+        }
+    }
+    
+    if ([maxLyric length] > 0 && fromDeviceName != nil)
+    {
+        // this is from another device (sync mode)
+        // appends the device name
+        maxLyric = [NSString stringWithFormat:@"%@ (%@)", maxLyric, fromDeviceName];
+    }
+    
+    [self.starView setPercent:seconds/audioPlayer.duration];
+    [_lblLyrics setText:maxLyric];
+    
+    NSLog(@"updateLyrics: %g, %@, %@", seconds, fromDeviceName, maxLyric);
+}
+
+#pragma mark - Timer stuff
 
 - (void)audioPlayerTick
 {
@@ -331,6 +371,8 @@
         // no signal from the host for too long
         // reset control state and stop looping
         [self pausePlaying];
+        syncBaseTime = 0;
+        syncUpdatedTime = 0;
         return;
     }
     
@@ -346,7 +388,7 @@
     if (recorder->isRunning())
     {
         // it's still recording
-        // nothing to do much
+        // nothing to do here
         [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(recorderTick) userInfo:nil repeats:NO];
         
         NSLog(@"Waiting for recorder...");
@@ -354,34 +396,39 @@
     else
     {
         recorderBaseTime = recorder->getRecognizedBaseTime();
+        [_btnSecondaryAction setEnabled:YES];
         
-        NSLog(@"Base time: %g", recorderBaseTime);
-        
-        if (recorderTimer != nil)
-        {
-            [recorderTimer invalidate];
-        }
-        
-        recorderTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(recorderTick2) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(recorderTick2) userInfo:nil repeats:NO];
     }
 }
 
 - (void)recorderTick2
 {
-    if (recorderBaseTime == 0 || audioPlayer.playing || syncBaseTime > 0)
+    if (recorderBaseTime == 0 || audioPlayer.playing)
     {
         // nothing to do here
         return;
     }
     
+    if (recorderTick2BaseTime != 0 && recorderTick2BaseTime != recorderBaseTime)
+    {
+        // there is another recorderTick2 has been trigger
+        // we should stop here
+        [self pausePlaying];
+        recorderTick2BaseTime = 0;
+        return;
+    }
+    
+    recorderTick2BaseTime = recorderBaseTime;
     float currentTime = CACurrentMediaTime();
     float baseOffset = currentTime - recorderBaseTime;
     
     if (baseOffset > audioPlayer.duration)
     {
         // well, we have to stop sometime...
-        [recorderTimer invalidate];
-        recorderTimer = nil;
+        [self pausePlaying];
+        recorderTick2BaseTime = 0;
+        recorderBaseTime = 0;
         return;
     }
     
@@ -389,35 +436,14 @@
     [self updateLyrics:baseOffset from:@"Air"];
     
     // schedule this function again...
-    recorderTimer = [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(recorderTick2) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(recorderTick2) userInfo:nil repeats:NO];
 }
 
-- (void)updateLyrics:(float)seconds from:(NSString *)fromDeviceName;
+#pragma mark - AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    float maxTime = 0;
-    float time = 0;
-    NSString *maxLyric = @"";
-    
-    for (NSNumber *key in lyrics)
-    {
-        time = [key floatValue];
-        if (seconds > time && maxTime < time)
-        {
-            maxTime = time;
-            maxLyric = [lyrics objectForKey:key];
-        }
-    }
-    
-    if ([maxLyric length] > 0 && fromDeviceName != nil)
-    {
-        // this is from another device (sync mode)
-        // appends the device name
-        maxLyric = [NSString stringWithFormat:@"%@ (%@)", maxLyric, fromDeviceName];
-    }
-    
-    [_lblLyrics setText:maxLyric];
-    
-    NSLog(@"updateLyrics: %g, %@, %@", seconds, fromDeviceName, maxLyric);
+    [self pausePlaying];
 }
 
 #pragma mark - AsyncUdpSocketDelegate
@@ -483,18 +509,28 @@
     return NO;
 }
 
-- (IBAction)record:(id)sender
+#pragma mark - StarViewDelegate
+
+- (void)onScrolling:(float)percent
 {
-    if (recorder->isRunning())
+    if (audioPlayer.playing)
     {
-        recorder->stopRecording();
+        // in play back mode
+        // simply adjust the currentTime of the player
+        audioPlayer.currentTime = audioPlayer.duration * percent;
+        [_starView setPercent:percent];
     }
-    else
+    else if (recorderBaseTime > 0)
     {
-        recorder->startRecording();
-        [self recorderTick];
+        // in recorder sync mode
+        // adjust the base time to achieve the desired effect
+        float currentTime = CACurrentMediaTime() - recorderBaseTime;
+        float newCurrentTime = audioPlayer.duration * percent;
+        float newBaseTime = recorderBaseTime - (newCurrentTime - currentTime);
+        recorderBaseTime = newBaseTime;
+        recorderTick2BaseTime = newBaseTime; // we have to update this too or it will stop itself
+        [_starView setPercent:percent];
     }
 }
-
 
 @end
