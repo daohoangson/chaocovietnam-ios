@@ -38,13 +38,17 @@
 
 - (void)setPercent:(float)newPercent
 {
-    if (newPercent > 0 && newPercent <= 1.f)
+    if (newPercent < 0)
     {
-        percent = newPercent;
+        percent = 0;
+    }
+    else if (newPercent > 1.f)
+    {
+        percent = 1.f;
     }
     else
     {
-        percent = 0.f;
+        percent = newPercent;
     }
     
     [self setNeedsDisplay];
