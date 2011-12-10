@@ -8,6 +8,7 @@
 
 #import "SBJson.h"
 #import "MainViewController.h"
+#import "Debug.h"
 
 @implementation MainViewController
 
@@ -86,6 +87,7 @@
     NSString *deviceNameRaw = [[UIDevice currentDevice] name];
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"[^a-z0-9 ]" options:NSRegularExpressionCaseInsensitive error:nil];
     deviceName = [[regex stringByReplacingMatchesInString:deviceNameRaw options:0 range:NSMakeRange(0, [deviceNameRaw length]) withTemplate:@""] retain]; // the device name has to be altered because special characters fcuk the UDP message (in my tests, it the single quote character)
+    [regex release];
     broadcastSentTime = 0;
     syncBaseTime = 0;
     syncDeviceName = nil;
@@ -333,7 +335,7 @@
     [self.starView setPercent:seconds/audioPlayer.duration];
     [_lblLyrics setText:maxLyric];
     
-    NSLog(@"updateLyrics: %g, %@, %@", seconds, fromDeviceName, maxLyric);
+    DLog(@"updateLyrics: %g, %@, %@", seconds, fromDeviceName, maxLyric);
 }
 
 #pragma mark - Timer stuff
@@ -391,7 +393,7 @@
         // nothing to do here
         [NSTimer scheduledTimerWithTimeInterval:CHAOCOVIETNAM_TIMER_STEP target:self selector:@selector(recorderTick) userInfo:nil repeats:NO];
         
-        NSLog(@"Waiting for recorder...");
+        DLog(@"Waiting for recorder...");
     }
     else
     {
@@ -450,8 +452,9 @@
 
 - (void)socketBroadcast:(float)seconds
 {
+    NSString *strSeconds = [NSString stringWithFormat:@"%.2f", seconds];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          [NSString stringWithFormat:@"%.2f", seconds], CHAOCOVIETNAM_DATA_KEY_SECONDS,
+                          strSeconds, CHAOCOVIETNAM_DATA_KEY_SECONDS,
                           deviceName, CHAOCOVIETNAM_DATA_KEY_NAME,
                           nil];
     NSString *str = [dict JSONRepresentation];
@@ -459,17 +462,16 @@
     NSData *data = [NSData dataWithData:[str dataUsingEncoding:NSASCIIStringEncoding]];
     [socket sendData:data toHost:host port:CHAOCOVIETNAM_PORT withTimeout:-1 tag:0];
     
-    NSLog(@"Sent %@ to %@", str, host);
+    DLog(@"Sent %@ to %@", str, host);
 
     [dict release];
 }
 
 - (void)socketParse:(NSData *)data fromHost:(NSString *)host
 {
-    NSString *str;
-    str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
     NSDictionary *dict = [str JSONValue];
+    
     if (dict != nil)
     {
         float seconds = [[dict objectForKey:CHAOCOVIETNAM_DATA_KEY_SECONDS] floatValue];
@@ -495,9 +497,11 @@
                 }
             }
         }
+        
+        [dict release];
     }
     
-    NSLog(@"Received %@ from %@", str, host);
+    DLog(@"Received %@ from %@", str, host);
     
     [str release];
 }

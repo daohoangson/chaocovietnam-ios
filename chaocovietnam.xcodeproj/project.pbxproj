@@ -53,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		161FB910148A93EC00E8B97D /* Frequencies004.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frequencies004.h; sourceTree = "<group>"; };
+		1629023D148E3D29004B1C44 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		16693BFD148D36F200EAA01D /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
 		16693BFE148D36F200EAA01D /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
 		16693BFF148D36F200EAA01D /* OHAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHAttributedLabel.h; sourceTree = "<group>"; };
@@ -267,6 +268,7 @@
 				16E38153148A175B00A2FB8B /* Recorder.mm */,
 				16711391147543D9001D90C8 /* StarView.h */,
 				16711392147543D9001D90C8 /* StarView.m */,
+				1629023D148E3D29004B1C44 /* Debug.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -349,7 +351,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = UET;
+				ORGANIZATIONNAME = "Dao Hoang Son";
 			};
 			buildConfigurationList = 167113611475439E001D90C8 /* Build configuration list for PBXProject "chaocovietnam" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -518,7 +520,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "chaocovietnam/chaocovietnam-Prefix.pch";
 				INFOPLIST_FILE = "chaocovietnam/chaocovietnam-Info.plist";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = chaocovietnam;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -529,7 +531,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "chaocovietnam/chaocovietnam-Prefix.pch";
 				INFOPLIST_FILE = "chaocovietnam/chaocovietnam-Info.plist";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = chaocovietnam;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
